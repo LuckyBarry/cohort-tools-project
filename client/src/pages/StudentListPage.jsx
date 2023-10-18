@@ -13,7 +13,9 @@ function StudentListPage() {
     axios
       .get(`${API_URL}/api/students?$`)
       .then((response) => {
-        setStudents(response.data)})
+        console.log(response)
+        setStudents(response.data)
+      })
       .catch((error) => console.log(error));
   }, []);
 
@@ -28,7 +30,7 @@ function StudentListPage() {
       </div>
 
       {students && students.map((student, index) => (
-          <StudentCard key={student._id} {...student} className={index % 2 === 0 ? "bg-white" : "bg-gray-100"} />
+        <StudentCard key={student._id} {...student} className={index % 2 === 0 ? "bg-white" : "bg-gray-100"} />
       ))}
     </div>
   );
